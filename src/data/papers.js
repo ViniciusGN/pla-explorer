@@ -1,27 +1,34 @@
 export const clusters = [
   {
-    id: 'csi-auth',
-    label: 'CSI-based authentication',
+    id: 'csi-fingerprinting',
+    label: 'CSI Fingerprinting',
     papers: [
       {
         id: '2508-20861',
-        arxivId: '2508.20861',
-        shortTitle: 'Practical PLA for Mobile Scenarios',
-        fullTitle: 'Practical Physical Layer Authentication for Mobile Scenarios Using Synthetic Dataset Enhanced Deep Learning',
-        authors: 'Guo, Zhang, Hong',
-        year: 2025,
-        tags: ['IEEE 802.11n', '52 subcarriers', 'Siamese CNN'],
+        shortTitle: 'Siamese CNN for PLA',
+        fullTitle: 'Physical Layer Authentication via Siamese CNNs over CSI Fingerprints',
+        subtitle: 'Reproduction notes on deep similarity learning applied to IEEE 802.11n channel state information for device authentication.',
+        authors: 'Vinícius Nascimento',
+        year: '2025',
+        tags: ['Physical Layer', 'CSI', 'Siamese CNN', '802.11n', 'WLAN TGn'],
         arxivUrl: 'https://arxiv.org/abs/2508.20861',
         sections: [
-          { id: 'introduction',      label: 'Introduction' },
-          { id: 'system-model',      label: 'System model' },
-          { id: 'synthetic-dataset', label: 'Dataset' },
-          { id: 'siamese-cnn',       label: 'Siamese CNN' },
-          { id: 'results',           label: 'Results' },
-          { id: 'real-experiment',   label: 'Experiment' },
-          { id: 'discussion',        label: 'Discussion' },
+          { id: 'introduction',  label: 'Introduction' },
+          { id: 'background',    label: 'Background' },
+          { id: 'methodology',   label: 'Methodology' },
+          { id: 'experiments',   label: 'Experiments' },
+          { id: 'results',       label: 'Results' },
+          { id: 'discussion',    label: 'Discussion' },
         ],
       },
     ],
   },
 ]
+
+export function findPaper(id) {
+  for (const cluster of clusters) {
+    const paper = cluster.papers.find(p => p.id === id)
+    if (paper) return paper
+  }
+  return undefined
+}

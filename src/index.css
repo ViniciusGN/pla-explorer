@@ -1,36 +1,117 @@
 @import "tailwindcss";
 
 :root {
-  --accent:        #2563EB;
-  --accent-bg:     #EFF6FF;
-  --accent-border: #BFDBFE;
-  --accent-text:   #1D4ED8;
+  --radius: 0.75rem;
 
-  --text-primary:   #111827;
-  --text-secondary: #6B7280;
-  --text-tertiary:  #9CA3AF;
+  --background: oklch(0.992 0.002 247);
+  --surface: oklch(1 0 0);
+  --surface-elevated: oklch(1 0 0);
+  --hairline: oklch(0.93 0.01 255);
 
-  --surface:      #F9FAFB;
-  --border:       #E5E7EB;
-  --border-hover: #93C5FD;
+  --text-primary: oklch(0.205 0.02 257);
+  --text-secondary: oklch(0.5 0.02 257);
+  --text-tertiary: oklch(0.68 0.02 257);
+
+  --brand: oklch(0.62 0.19 256);
+  --brand-soft: oklch(0.96 0.03 256);
+
+  --border: oklch(0.93 0.01 255);
 }
 
 .dark {
-  --text-primary:   #F9FAFB;
-  --text-secondary: #9CA3AF;
-  --text-tertiary:  #6B7280;
+  --background: oklch(0.16 0.02 257);
+  --surface: oklch(0.2 0.02 257);
+  --surface-elevated: oklch(0.23 0.02 257);
+  --hairline: oklch(1 0 0 / 8%);
 
-  --surface:      #111827;
-  --border:       #1F2937;
-  --border-hover: #1D4ED8;
+  --text-primary: oklch(0.97 0.003 247);
+  --text-secondary: oklch(0.72 0.02 257);
+  --text-tertiary: oklch(0.55 0.02 257);
+
+  --brand: oklch(0.72 0.17 256);
+  --brand-soft: oklch(0.3 0.06 256);
+
+  --border: oklch(1 0 0 / 8%);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-body {
+html, body {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 1.75;
   color: var(--text-primary);
-  background: var(--surface);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+}
+
+.prose-paper {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.prose-paper h2 {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.875rem;
+}
+
+.prose-paper h3 {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.625rem;
+}
+
+.prose-paper p {
+  margin-bottom: 1.125rem;
+}
+
+.prose-paper strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.prose-paper a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--brand) 35%, transparent);
+  text-underline-offset: 3px;
+}
+
+.prose-paper code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85em;
+  background: var(--brand-soft);
+  color: var(--brand);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+.prose-paper blockquote {
+  border-left: 2px solid var(--brand);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: 1.75rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.prose-paper ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1.125rem;
+}
+
+.prose-paper ul li {
+  margin-bottom: 0.35rem;
 }
